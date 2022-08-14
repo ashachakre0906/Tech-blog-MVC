@@ -4,23 +4,25 @@ const {Model , Datatypes} =require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require(bcrypt);
 
+class User extends Model {}
+
 User.init(
     {
       // define columns
       id: {
-        type: DataTypes.INTEGER,
+        type: Datatypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
       },
       //Change the username to email >>change the validate key to email
       username: {
-        type: DataTypes.STRING,
+        type: Datatypes.STRING,
         isUnique: true,
         allowNull: false,
       },
       password: {
-        type: DataTypes.STRING,
+        type: Datatypes.STRING,
         allowNull: false,
         validate: {
           notNull: true,
@@ -56,10 +58,6 @@ User.init(
       },
     }
   );
-
-
-
-
 
 
 module.exports = User;
