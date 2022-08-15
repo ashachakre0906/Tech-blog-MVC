@@ -5,9 +5,34 @@ class Comment extends Model {}
 
 Comment.init(
   {
-    body: {
+    id: Datatypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  {
+    commentData: {
       type: Datatypes.STRING,
       allowNull: false,
+      unique: true,
+    },
+  },
+  {
+    userId: {
+      type: Datatypes.INTEGER,
+      references: {
+        model: "user",
+        key: "id",
+      },
+    },
+  },
+  {
+    postId: {
+      type: Datatypes.INTEGER,
+      references: {
+        model: post,
+        key: "id",
+      },
     },
   },
   {
@@ -18,4 +43,4 @@ Comment.init(
     modelName: "Comment",
   }
 );
-module.exports = Comment
+module.exports = Comment;

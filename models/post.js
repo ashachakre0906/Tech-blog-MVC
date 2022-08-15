@@ -5,13 +5,33 @@ class Post extends Model {}
 
 Post.init(
   {
-    title: {
+    id: {
+      type: Datatypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    postTitle: {
       type: Datatypes.STRING(100),
       allowNull: false,
+      unique: true,
     },
-    body: {
+    postDescription: {
       type: Datatypes.STRING,
       allowNull: false,
+      unique: true,
+    },
+    date_created: {
+      type: Datatypes.DATE,
+      allowNull: false,
+      defaultValue: Datatypes.NOW,
+    },
+    userId: {
+      type: Datatypes.INTEGER,
+      references: {
+        model: "user",
+        key: "id",
+      },
     },
   },
   {
@@ -22,4 +42,5 @@ Post.init(
     modelName: "Post",
   }
 );
+
 module.exports = Post;

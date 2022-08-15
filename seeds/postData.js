@@ -1,14 +1,10 @@
-const { Post } = require('../models')
-const userData = [{
- {
+const { Post } = require("../models");
 
- }
- ,
- {
-
- }
- ,
- {
+const postData = [{
+    postTitle: "",
     
- }
-}];
+
+
+
+}]
+
