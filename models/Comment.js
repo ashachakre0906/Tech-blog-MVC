@@ -5,10 +5,12 @@ class Comment extends Model {}
 
 Comment.init(
   {
-    id: Datatypes.INTEGER,
+    id: { 
+    type:Datatypes.INTEGER,
     allowNull: false,
     primaryKey: true,
     autoIncrement: true,
+    }
   },
   {
     commentData: {
@@ -17,6 +19,15 @@ Comment.init(
       unique: true,
     },
   },
+  {
+    dateCreated: {
+      type: Datatypes.DATEONLY,
+      allowNull: false,
+      defaultValue: Datatypes.NOW
+
+    }
+  }
+  ,
   {
     userId: {
       type: Datatypes.INTEGER,
