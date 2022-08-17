@@ -1,5 +1,4 @@
 const router = require("express").Router;
-const { Model } = require("sequelize/types");
 const { Post, User, Comment } = require("../models");
 const withAuth = require("../util/auth");
 
@@ -11,7 +10,7 @@ router.get("/", withAuth, async (req, res) => {
       include: [User],
     });
     const posts = getAllPosts.map((post) => post.get({ plain: true }));
-    res.render("homepage", {
+    res.render('all-posts-homepage', {
       posts,
       logged_in: req.session.logged_in,
     });

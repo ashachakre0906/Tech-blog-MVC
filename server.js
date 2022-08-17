@@ -5,7 +5,7 @@ const expsesh = require('express-session');
 
 const SequelizeStore = require('connect-session-sequelize')(expsesh.Store);
 const sequelize = require('./config/connection');
-const routes = require('./controllers/homepageController');
+const routes = require('./controllers');
 
 // handlebars helpers
 const helpers = require('./utils/helpers');
@@ -45,7 +45,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(routes);
 
 // server listener + sequelize sync
-sequelize.sync({force: false}).then(() => {
+sequelize.sync({force: true}).then(() => {
     app.listen(PORT, () => console.log('server up'));
 });
 

@@ -1,4 +1,3 @@
-const { Post } = require("../models");
 
 const postData = [
   {
@@ -19,18 +18,18 @@ const postData = [
       "Apple and Google both have fantastic app stores. But Android is far superior at organizing apps, letting you put important stuff on the home screens and hide less useful apps in the app drawer. Also, Android widgets are much more useful than Apple",
     userId: 3,
   },
-  {
-    postTitle: "You Should Eat More Oranges",
-    postDescription:
-      "They are packed with anti-inflammatory properties. Oranges and other antioxidant-rich foods are even more powerful than medication in fighting long-term inflammation. That is the condition with links to cancer, heart disease, diabetes, arthritis, depression and Alzheimer",
-    userId: 4,
-  },
-  {
-    postTitle: "Lose Weight By Exercising",
-    postDescription:
-      "Exercise is helpful for weight loss and maintaining weight loss. Exercise can increase metabolism, or how many calories you burn in a day. It can also help you maintain and increase lean body mass, which also helps increase number of calories you burn each day.",
-    userId: 5,
-  },
+  // {
+  //   postTitle: "You Should Eat More Oranges",
+  //   postDescription:
+  //     "They are packed with anti-inflammatory properties. Oranges and other antioxidant-rich foods are even more powerful than medication in fighting long-term inflammation. That is the condition with links to cancer, heart disease, diabetes, arthritis, depression and Alzheimer",
+  //   userId: 4,
+  // },
+  // {
+  //   postTitle: "Lose Weight By Exercising",
+  //   postDescription:
+  //     "Exercise is helpful for weight loss and maintaining weight loss. Exercise can increase metabolism, or how many calories you burn in a day. It can also help you maintain and increase lean body mass, which also helps increase number of calories you burn each day.",
+  //   userId: 5,
+  // },
 ];
 
 const seedPost = () => Post.bulkCreate(postData);
