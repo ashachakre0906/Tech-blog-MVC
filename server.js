@@ -8,7 +8,7 @@ const sequelize = require('./config/connection');
 const routes = require('./controllers');
 
 // handlebars helpers
-const helpers = require('./utils/helpers');
+const helpers = require('./util/helpers');
 
 // handlebars init
 const hbs = exphbs.create({
