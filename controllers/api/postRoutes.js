@@ -7,7 +7,7 @@ router.post("/", withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
       ...req.body,
-      user_Id: req.session.user_Id,
+      user_id: req.session.user_id,
     });
     res.status(200).json(newPost);
   } catch (err) {
@@ -37,7 +37,6 @@ router.delete("/:id", withAuth, async (req, res) => {
     const deletePost = await Post.destroy({
       where: {
         id: req.params.id,
-        user_Id: req.session.user_Id,
       },
     });
 
