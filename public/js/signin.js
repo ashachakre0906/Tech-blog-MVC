@@ -1,4 +1,5 @@
 const signinFormHandler = async (event) => {
+   event.preventDefault();
 //Collect values from the login form
 const username = document.getElementById('username-login').value.trim();
 const password = document.getElementById('password-login').value.trim();
@@ -23,7 +24,7 @@ const password = document.getElementById('password-login').value.trim();
     }
 }
 
-document.querySelector('login-form')
+document.querySelector('#login-form')
         .addEventListener('submit',signinFormHandler)
 
 
