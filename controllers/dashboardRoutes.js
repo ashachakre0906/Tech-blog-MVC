@@ -12,7 +12,7 @@ router.get("/", withAuth, async (req, res) => {
     });
     const posts = getPost.map((post) => post.get({ plain: true }));//we are fetching the data and it gonna map each object and renders it on the page into the plain text
     console.log(posts);
-    res.render("all-posts");
+    res.render("dashboard");
   } catch (err) {
     res.redirect("login");
   }

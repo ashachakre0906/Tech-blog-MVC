@@ -1,0 +1,21 @@
+
+  {{#if posts.length}}
+
+<div>
+   <h2>My Posts</h2>
+</div>
+<ol>
+{{#each posts as |post|}}
+<li>
+   {{> singlepost post}}
+<form action="/dashboard/edit/{{post.id}}">
+<button type="button">Edit post</button>
+</form>
+</li>
+{{/each}}
+
+</ol>
+
+{{/if}}
+
+<script src ='/js/editpost.js'></script>

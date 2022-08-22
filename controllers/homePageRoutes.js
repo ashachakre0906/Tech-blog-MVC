@@ -48,14 +48,14 @@ router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/dashboard");
   }
-  res.redirect("login");
+  res.render("signin");
 });
 
 router.get("/signup", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/dashboard");
   }
-  res.redirect("/signup");
+  res.render("/signup");
 });
 
 module.exports = router;
