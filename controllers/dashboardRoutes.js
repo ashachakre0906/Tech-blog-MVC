@@ -29,7 +29,6 @@ router.get('/', withAuth, async(req, res) => {
 
 });
 
-
 //Creating a new post >>router.get
 //Edit a post associated with a specific user >>get that one post and update the post
 // /edit/id >>findByPk

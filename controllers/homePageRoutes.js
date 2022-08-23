@@ -10,7 +10,7 @@ router.get("/", withAuth, async (req, res) => {
       include: [User],
     });
     const posts = getAllPosts.map((post) => post.get({ plain: true }));
-    res.render('all-posts-homepage', {
+    res.render('all-posts', {
       posts,
       logged_in: req.session.logged_in,
     });
@@ -22,17 +22,19 @@ router.get("/", withAuth, async (req, res) => {
 //Get a single Post for Homepage
 router.get("/post/:id", withAuth, async (req, res) => {
   try {
-    const postsData = await Post.findByPk(req.params.id, {
-      include: [
+    const singlePost = await Post.findOne({
+      where: [
         User,
         {
-          model: Comment,
-          include: [User],
-        },
-      ],
-    });
-    if (postsData) {
-      const post = postsData.get({ plain: true });
+         model: Comment,
+         include: [User],
+      },
+    ],
+    
+  });
+
+    if (singlePost) {
+      const post = singlePost.get({ plain: true });
       console.log(post);
       res.render("single-post", { post, logged_in: req.session.logged_in });
     } else {
@@ -44,18 +46,20 @@ router.get("/post/:id", withAuth, async (req, res) => {
 });
 
 //Login and Sign-up routes
-router.get("/signin", (req, res) => {
+router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/dashboard");
+    return;
   }
-  res.render("signin");
+  res.render("login");
 });
 
 router.get("/signup", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/dashboard");
+    return;
   }
-  res.render("/signup");
+  res.render("signup");
 });
 
 module.exports = router;

@@ -1,5 +1,3 @@
-const { DELETE } = require("sequelize/types/query-types");
-
 const editPostHandler = async (event) => {
     event.preventDefault();
 const postId = document.getElementById('edit-post-form');
@@ -26,7 +24,7 @@ if (response.ok){
 };
 
 const deletebuttonHandler = async(event) =>{
-    const response = await fetch(`/api/post/${postId}`,{
+    const response = await fetch(`/api/post/${post_id}`,{
         method: 'DELETE',
     });
     document.location.replace('/dashboard');

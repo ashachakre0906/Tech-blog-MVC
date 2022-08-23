@@ -1,0 +1,13 @@
+<!---All post from all users-->
+<div class ='row'>
+    <div class='col-auto'>
+        <header>{{user.username}}!</header>
+    </div>
+</div>
+{{#if posts.length}}
+<div class = "card flex-column">
+    {{#each posts as |post|}}
+    {{> editItem post}}
+    {{/each}}
+</div>
+{{/if}}
