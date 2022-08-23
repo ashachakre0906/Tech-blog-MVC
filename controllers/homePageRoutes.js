@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Post, User, Comment } = require("../models");
-const withAuth = require("../util/auth");
+const withAuth = require("../utils/auth");
 
 //Get All Posts for Homepage
 router.get("/", withAuth, async (req, res) => {
@@ -44,7 +44,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
 });
 
 //Login and Sign-up routes
-router.get("/login", (req, res) => {
+router.get("/signin", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/dashboard");
   }

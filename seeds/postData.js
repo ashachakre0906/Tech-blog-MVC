@@ -4,19 +4,19 @@ const postData = [
     postTitle: "Where To Buy An Engagement Ring",
     postDescription:
       "Zales diamonds are low quality and they capitalise on the naivety of buyers and the popularity of their name. Whiteflash, James Allen and Blue Nile all offer large inventories of quality diamonds, complete with high-res imaging/video and diamond certificates.",
-    userId: 1,
+    user_id: 1,
   },
   {
     postTitle: "A Guide To Feeding Toddlers.",
     postDescription:
-      "Milks is an important part of a toddler's diet. It provides calcium and vitamin D to help build strong bones. Toddlers should have 700 milligrams of calcium and 600 IU (International Units) of vitamin D (which aids in calcium absorption) a day. This calcium need is met if kids get the recommended two servings of dairy foods every day. But those servings provide less than half of the necessary vitamin D, so doctors often recommend vitamin D supplements. Your doctor will let you know if your toddler needs a supplement.",
-    userId: 2,
+      "Milk is an important part of a toddler's diet. It provides calcium and vitamin D to help build strong bones. Toddlers should have 700 milligrams of calcium and 600 IU (International Units) of vitamin D (which aids in calcium absorption) a day. This calcium need is met if kids get the recommended two servings of dairy foods every day. But those servings provide less than half of the necessary vitamin D, so doctors often recommend vitamin D supplements. Your doctor will let you know if your toddler needs a supplement.",
+    user_id: 2,
   },
   {
     postTitle: " Is Android Better Than iOS",
     postDescription:
       "Apple and Google both have fantastic app stores. But Android is far superior at organizing apps, letting you put important stuff on the home screens and hide less useful apps in the app drawer. Also, Android widgets are much more useful than Apple",
-    userId: 3,
+    user_id: 3,
   },
   // {
   //   postTitle: "You Should Eat More Oranges",
