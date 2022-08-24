@@ -48,10 +48,10 @@ router.get("/post/:id", withAuth, async (req, res) => {
 //Login and Sign-up routes
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/dashboard");
+    res.redirect("/");
     return;
   }
-  res.render("login");
+  res.render("login");;
 });
 
 router.get("/signup", (req, res) => {

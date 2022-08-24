@@ -7,12 +7,14 @@ const password = document.getElementById('password-login').value.trim();
  if (username && password) {
     //Send a POST request to the API end point
     const response = await fetch('/api/user/login',{
-      method : POST,
+      
+      method : 'post',
       body : JSON.stringify({
-         username : username,
-         password : password,
+         username ,
+         password ,
 
       }),
+
       headers : {'Content-type' : 'application/json'}
    });
       if (response.ok) {
@@ -22,6 +24,7 @@ const password = document.getElementById('password-login').value.trim();
       }
 
     }
+    console.log(username , password);
 }
 
 document.querySelector('#login-form')

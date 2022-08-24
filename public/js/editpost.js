@@ -5,7 +5,7 @@ const postTitle = document.getElementById('input[name="post-title"]').value.trim
 const postDescription = document.getElementById('text-area[name="post-description"]').value.trim();
 
 const response = await fetch(`/api/post/${postId}`,{
-    method: 'PUT',
+    method: 'put',
     body: JSON.stringify({
         postTitle,
         postDescription,

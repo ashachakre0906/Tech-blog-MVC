@@ -7,7 +7,7 @@ const signUpFormHandler = async (event) => {
 
     if (nameEl && emailEl && passwordEl && confirmPasswordEl){
         const response = await fetch('/api/user/signup', {
-            method : 'POST',
+            method : 'post',
             body : JSON.stringify({ nameEl, emailEl, passwordEl, confirmPasswordEl}),
             headers : { 'Content-type' : 'application/json'},
 
@@ -23,5 +23,5 @@ const signUpFormHandler = async (event) => {
 
 document
 .querySelector('#signup-form')
-.addEventListenever('submit', signUpFormHandler);
+.addEventListener('submit', signUpFormHandler);
 

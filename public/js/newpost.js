@@ -8,7 +8,7 @@ const createPostHandler = async (event) => {
   console.log(postDescription);
 
   await fetch("/api/post", {
-    method: "POST",
+    method: "post",
     body: JSON.stringify({
       postTitle,
       postDescription,
