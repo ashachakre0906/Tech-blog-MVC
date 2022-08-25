@@ -5,27 +5,25 @@ const withAuth = require("../utils/auth");
 //Get All existing Posts associated to a specific User
 
 router.get("/", withAuth, async (req, res) => {
-  try {
+  // try {
     const getPost = await Post.findAll({
       where: { user_id: req.session.user_id },
       include: [User],
-    });
-    const posts = getPost.map((post) => post.get({ plain: true }));//we are fetching the data and it gonna map each object and renders it on the page into the plain text
-    console.log(posts);
-    res.render('all-posts-dashboard',{
-      layout :'dashboard',
-      posts,
-    });
-  } catch (err){
-    res.redirect('login');
-  }
+    })
+    .then(response => {
+      console.log("Response LINE14 dashboardroutes.js", response)
+      const posts = response.map((post) => post.get({ plain: true }));//we are fetching the data and it gonna map each object and renders it on the page into the plain text
+      res.render('dashboard',{posts, logged_in:true});
+    })
+  // } catch (err){
+  //   res.redirect('login');
+  // }
 });
 // Adding a new post
 router.get('/', withAuth, async(req, res) => {
-  res.render('new-post',{
-    layout: 'dashboard'
 
-  });
+
+  res.render('new-post',{posts, logged_in:true});
 
 });
 

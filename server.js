@@ -46,7 +46,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(routes);
 
 // server listener + sequelize sync
-sequelize.sync({force: true}).then(() => {
+//force:true adds a DROP TABLE IF EXISTS before trying to create the table
+sequelize.sync({force: false}).then(() => {
     app.listen(PORT, () => console.log('server up'));
 });
 
