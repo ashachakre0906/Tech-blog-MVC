@@ -2,20 +2,16 @@ const router = require('express').Router();
 const { User } = require('../../models');
 // waits for something to happen
 //signup
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     const newUser = await User.create({
       username: req.body.username,
-      password: req.body.password,
-
+      password: req.body.password
     });
-   //Defining the below properties
     req.session.save(() => {
-      req.session.user_id = newUser.id;
-      req.session.username = newUser.username
+      req.session.user_id = newUser;
       req.session.logged_in = true;
-
-      res.status(200).json(newUser);
+      res.json(newUser);
     });
   } catch (err) {
     res.status(400).json(err);
@@ -60,7 +56,7 @@ router.post('/logout', (req, res) => {
       res.status(204).json({message: 'Sucessfully logged out!'})
     });
   } else {
-    res.status(404).json({message: 'already logged out'});
+    res.status(404).json({message: 'Sucessfully logged out'});
   }
 });
 
