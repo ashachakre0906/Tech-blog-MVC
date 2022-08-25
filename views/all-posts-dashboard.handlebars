@@ -1,7 +1,9 @@
 <!---All post from all users-->
 <div class ='row'>
     <div class='col-auto'>
-        <header>{{user.username}}!</header>
+        {{#if logged_in}}
+        <h2>Hello,{{user.username}}!</h2>
+        {{/if}}
     </div>
 </div>
 {{#if posts.length}}
