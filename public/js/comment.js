@@ -2,8 +2,7 @@ const postId = document.querySelector('input[name="post-id"]').value.trim();
 const commentFormHandler = async (event) => {
   event.preventDefault();
   const commentBody = document
-    .querySelector('textarea[name="comment-body"]')
-    .value.trim();
+    .querySelector('textarea[name="comment-body"]').value.trim();
   if (commentBody) {
     const response = await fetch("/api/comment", {
       method: "post",
