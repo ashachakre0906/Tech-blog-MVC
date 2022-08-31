@@ -5,7 +5,7 @@ const usernameEl = document.querySelector('#username-login');
 const passwordEl = document.querySelector('#password-login');
 
     //Send a POST request to the API end point
-    const response = await fetch('/api/user/login',{
+    const response = await fetch('/api/users/login',{
       
       method : 'POST',
       body : JSON.stringify({

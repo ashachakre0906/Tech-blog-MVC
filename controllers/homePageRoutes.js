@@ -7,7 +7,7 @@ router.get("/", withAuth, async (req, res) => {
   try {
     // Get all posts and JOIN with user data
     const getAllPosts = await Post.findAll({
-      include: [User],
+      include: [User, Comment],
     });
     const posts = getAllPosts.map((post) => post.get({ plain: true }));
     res.render('all-posts-homepage', {

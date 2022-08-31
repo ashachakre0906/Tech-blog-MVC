@@ -11,21 +11,21 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    postTitle: {
+    post_title: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
-    postDescription: {
+    post_description: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
-    dateCreated: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
+    // date_created: {
+    //   type: DataTypes.DATEONLY,
+    //   allowNull: false,
+    //   defaultValue: DataTypes.NOW,
+    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

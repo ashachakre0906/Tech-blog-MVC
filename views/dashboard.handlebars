@@ -1,0 +1,15 @@
+{{#if posts.length}}
+<section>
+  <h2>Your Posts</h2>
+    {{#each posts as |post|}}
+      {{> editItem posts}}
+    {{/each}}
+
+</section>
+{{else}}
+<h2>you dont have any posts</h2>
+{{/if}}
+
+<button type="submit" class="btn"><a class="link" href="/dashboard/new">+ New Post</a></button>
+
+<script src="/js/new-post.js"></script>

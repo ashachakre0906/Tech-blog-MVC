@@ -12,7 +12,7 @@ router.get("/", withAuth, async (req, res) => {
     });
     const posts = getPost.map((post) => post.get({ plain: true })); //we are fetching the data and it gonna map each object and renders it on the page into the plain text
     res.render("all-posts-dashboard", {
-      layout: "dashboard",
+      // layout: "dashboard",
       posts,
     });
   } catch (err) {
@@ -21,14 +21,13 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 // Adding a new post
-router.get("/new", withAuth, (req, res) => {
-  res.render("new-post", {
-    layout: "dashboard",
+router.get('/new',(req, res) => {
+  res.render('new-post', {
   });
 });
 
-//Creating a new post >>router.get
-//Edit a post associated with a specific user >>get that one post and update the post
+// Creating a new post >>router.get
+// Edit a post associated with a specific user >>get that one post and update the post
 // /edit/id >>findByPk
 router.get("/edit/:id", withAuth, async (req, res) => {
   try {
