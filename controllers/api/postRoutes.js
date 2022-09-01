@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const { User, Post, Comment } = require("../../models");
+const { User, Post} = require("../../models");
 const withAuth = require("../../utils/auth");
 
 //get route to get all posts
-router.get("/", async (req, res) => {
+router.get("/",withAuth, async (req, res) => {
   try {
     // Get all posts and JOIN with user data
     const allPosts = await Post.findAll({
@@ -16,20 +16,18 @@ router.get("/", async (req, res) => {
 });
 
 // create new post
-router.post('/', withAuth, (req, res) => {
-  const newPost = Post.create({
-          title: req.body.post_title,
-          content: req.body.post_description,
-          user_id: req.session.user_id
-      })
-      .then(newPost => res.json(newPost))
-      .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-      });
+router.post('/',async (req, res) => {
+  const body = req.body;
+  try {
+    const newPost = await Post.create({...body , user_id: req.session.user_id});
+    res.json(newPost);
+
+  } catch (err) {
+    console.log(err);
+    res.json(500).json(err);
+  }
 });
-
-
+  
 //Create a new post
 
 // router.post('/', withAuth, (req, res) => {
