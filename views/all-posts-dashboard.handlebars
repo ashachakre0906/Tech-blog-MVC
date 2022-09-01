@@ -1,15 +1,15 @@
-<!---All post from all users-->
-<div class ='row'>
-    <div class='col-auto'>
-        {{#if logged_in}}
-        <h2>Hello,{{user.username}}!</h2>
+<div class="row">
+    <div class="col-auto">
+        {{#if loggedIn}}
+        <h2>Welcome, {{user.username}}!</h2>
         {{/if}}
     </div>
 </div>
+<br>
 {{#if posts.length}}
-<div class = "card flex-column">
+<div class="card flex-column">
     {{#each posts as |post|}}
-    {{> editItem post}}
+    {{>editItem post}}
     {{/each}}
 </div>
 {{/if}}
