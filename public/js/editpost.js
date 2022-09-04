@@ -1,14 +1,17 @@
 const editPostHandler = async (event) => {
     event.preventDefault();
-const postId = document.getElementById('edit-post-form');
-const postTitle = document.getElementById('input[name="post-title"]').value.trim();
-const postDescription = document.getElementById('text-area[name="post-description"]').value.trim();
+const postId = document.getElementById('input[name="post-id"]');
+const post_title = document.getElementById('input[name="post-title"]').value.trim();
+const post_description = document.getElementById('text-area[name="post-description"]').value.trim();
 
-const response = await fetch(`/api/post/${postId}`,{
-    method: 'put',
+console.log(post_title);
+console.log(post_description);
+
+const response = await fetch(`/api/posts/${postId}`,{
+    method: 'PUT',
     body: JSON.stringify({
-        postTitle,
-        postDescription,
+        post_title,
+        post_description,
         
     }),
     headers: {
@@ -24,7 +27,7 @@ if (response.ok){
 };
 
 const deletebuttonHandler = async(event) =>{
-    const response = await fetch(`/api/post/${post_id}`,{
+    const response = await fetch(`/api/posts/${postId}`,{
         method: 'DELETE',
     });
     document.location.replace('/dashboard');

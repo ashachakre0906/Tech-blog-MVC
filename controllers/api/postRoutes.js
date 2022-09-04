@@ -62,18 +62,38 @@ router.post('/',async (req, res) => {
 
 //Update a post
 
-router.put("/:id", withAuth, async (req, res) => {
-  try {
-    const updatedPost = await Post.update(req.body, {
-      where: {
-        id: req.params.id,
-      },
-    });
-    res.status(200).json(updatedPost);
+router.put('/:id', withAuth, async (req, res) => {
+  try{
+      console.log('here is my req.body', req.body);
+
+      const [affectedRows] = await Post.update(req.body, {
+          where: {
+              id: req.params.id,
+          },
+      });
+
+      if (affectedRows > 0) {
+          res.status(200).end(); 
+      } else {
+          res.status(404).end();
+      } 
   } catch (err) {
-    res.status(500).json(err);
+      res.status(500).json(err); 
   }
 });
+
+// router.put("/:id", withAuth, async (req, res) => {
+//   try {
+//     const updatedPost = await Post.update(req.body, {
+//       where: {
+//         id: req.params.id,
+//       },
+//     });
+//     res.status(200).json(updatedPost);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 //Delete a post
 

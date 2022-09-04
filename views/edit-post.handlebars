@@ -7,14 +7,14 @@
     </div>
     <div>
       <label class="form-label">Description:</label>
-      <textarea
-        name="post-description"
-        class="form-textarea form-input">{{post.post_description}}</textarea>
+      <textarea class="form-textarea form-input" name="post-description" data-number="8">{{post.post-description}}</textarea>
+        </div>
     </div>
     <button class="btn btn-primary" type="submit">Edit Post</button>
+    <input type="'hidden" name="post-id" value="{{post.id}}">
   </form>
   <div class="card-body">
     <button class="btn btn-primary" type="click" id="delete-btn">Delete Post</button>
   </div>
 </div>
-<script src="./js/edit-post.js"></script>
+<script src="/js/edit-post.js"></script>
