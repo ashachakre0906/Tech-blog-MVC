@@ -12,7 +12,7 @@ router.get("/", withAuth, async (req, res) => {
     });
     const posts = getPost.map((post) => post.get({ plain: true })); //we are fetching the data and it gonna map each object and renders it on the page into the plain text
     res.render("all-posts-dashboard", {
-      // layout: "dashboard",
+      layout: "dashboard",
       posts,
     });
   } catch (err) {
