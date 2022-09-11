@@ -46,9 +46,12 @@ body {
 .app-title {
   font-family: "Ms Madi", cursive;
 }
-.app-title a {
+.app-title a{
   color: #fff;
+}
+a:hover {
   text-decoration: none;
+
 }
 
 .card {
@@ -58,25 +61,9 @@ body {
   max-width: 50%;
   border: 1px solid #9c9c9c;
   padding: 20px;
+  font-size:20px;
 }
-.btn {
-  max-width: 100%;
-  color: #17a2b8;
-  color: white;
-}
-/* .form-group{
-    display: block;
-    width: 100%;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-} */
+
 .form-input {
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
@@ -88,4 +75,8 @@ body {
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+}
+
+.register-link{
+    color:#17a2b8;
 }
