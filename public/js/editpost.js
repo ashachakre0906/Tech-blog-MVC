@@ -1,13 +1,13 @@
 const editPostHandler = async (event) => {
     event.preventDefault();
-const postId = document.getElementById('input[name="post-id"]').value.trim();
-const post_title = document.getElementById('input[name="post-title"]').value.trim();
-const post_description = document.getElementById('text-area[name="post-description"]').value.trim();
+const postId = document.querySelector('input[name="post-id"]').value;
+const post_title = document.querySelector('input[name="post-title"]').value.trim();
+const post_description = document.querySelector('text-area[name="post-description"]').value.trim();
 console.log(postId);
 console.log(post_title);
 console.log(post_description);
 
-const response = await fetch(`/api/posts/id`,{
+const response = await fetch(`/api/posts/${postId}`,{
     method: 'PUT',
     body: JSON.stringify({
         post_title,

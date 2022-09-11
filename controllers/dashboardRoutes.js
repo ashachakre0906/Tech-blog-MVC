@@ -31,10 +31,10 @@ router.get('/new',(req, res) => {
 // /edit/id >>findByPk
 router.get("/edit/:id", withAuth, async (req, res) => {
   try {
-    const editPost = await Post.findByPk(req.params.id);
-    if (editPost) {
-      const post = editPost.get({ plain: true });
-      console.log(post);
+    const postData = await Post.findByPk(req.params.id);
+    if (postData) {
+      const post = postData.get({ plain: true });
+      console.log(postData);
       res.render("edit-post", {
         layout: "dashboard",
         post,

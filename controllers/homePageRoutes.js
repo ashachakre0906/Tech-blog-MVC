@@ -22,7 +22,7 @@ router.get("/", withAuth, async (req, res) => {
 //Get a single Post for Homepage
 router.get("/post/:id", withAuth, async (req, res) => {
   try {
-    const singlePost = await Post.findOne({
+    const postData = await Post.findOne({
       where: [
         User,
         {
@@ -33,8 +33,8 @@ router.get("/post/:id", withAuth, async (req, res) => {
     
   });
 
-    if (singlePost) {
-      const post = singlePost.get({ plain: true });
+    if (postData) {
+      const post = postData.get({ plain: true });
       console.log(post);
       res.render("single-post", { post, logged_in: req.session.logged_in });
     } else {
