@@ -6,44 +6,50 @@
 } */
 
 * {
-    box-sizing: border-box;
-    list-style-type: none;
+  box-sizing: border-box;
+  list-style-type: none;
 }
 
 body {
-    margin: 0;
-    padding:0;
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.5;
-    font-size: 20px;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+  font-size: 20px;
 }
 .navbar {
-    width: 100%;
-    /* position:fixed; */
-    background-image:linear-gradient(-90deg, #d38312, #a83279);
-    font-size: 20px;
-    justify-content: flex-end;
-
+  width: 100%;
+  background-image: linear-gradient(-90deg, #d38312, #a83279);
+  font-size: 20px;
 }
 .navbar-nav {
-    display:flex;
-    flex-direction: row;
-     justify-content: space-evenly;
-     text-align: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .nav-item {
-    list-style-type: none;
-    outline:none;
-    border:none;
-    display: inline-block;
-    margin:3px;
-    padding: 10px;
+  list-style-type: none;
+  outline: none;
+  border: none;
+  display: inline-block;
+  margin: 3px;
+  padding: 10px;
 }
 
 .nav-item a {
- color: #fff;
- font-weight: 500;
- /* float: right; */
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
 }
+
+.app-title {
+  font-family: "Ms Madi", cursive;
+}
+.app-title a {
+  color: #fff;
+  text-decoration: none;
+
+}
+
 
