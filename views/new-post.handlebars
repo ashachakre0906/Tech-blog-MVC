@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card d-flex justify-content-center align-items-center mx-auto">
     <h2 class="card-header">New Post</h2>
     <form class="card-body" id="create-post-form">
         <input type="hidden" name="post-id" value="{{posts.id}}">
@@ -10,7 +10,9 @@
             <label class="form-label">Description</label>
             <textarea class="form-textarea form-input" name="post-description" data-number="8"></textarea>
         </div>
-        <button class="btn btn-primary">Create Post</button>
+        <div>
+        <button class="btn btn-info btn-block btn-lg text-white">Create Post</button>
+        </div>
     </form>
 </div>
 <script src="/js/new-post.js"></script>
