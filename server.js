@@ -12,9 +12,7 @@ const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
 // handlebars init
-const hbs = exphbs.create({
-    helpers,
-});
+const hbs = exphbs.create({ helpers });
 
 // express session settings
 const sessionSettings = {

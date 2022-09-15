@@ -10,7 +10,7 @@ router.get("/", withAuth, async (req, res) => {
       include: [User, Comment],
     });
     const posts = getAllPosts.map((post) => post.get({ plain: true }));
-    res.render('all-posts-homepage', {
+    res.render("all-posts-homepage", {
       posts,
       logged_in: req.session.logged_in,
     });
@@ -23,20 +23,20 @@ router.get("/", withAuth, async (req, res) => {
 router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findOne({
-      where: [
+      where: { id: req.params.id },
+      include: [
         User,
         {
-         model: Comment,
-         include: [User],
-      },
-    ],
-    
-  });
+          model: Comment,
+          include: [User],
+        },
+      ],
+    });
 
     if (postData) {
       const post = postData.get({ plain: true });
       console.log(post);
-      res.render("single-post", { post, logged_in: req.session.logged_in });
+      res.render("singlepost", { post, logged_in: req.session.logged_in });
     } else {
       res.status(404).end();
     }
@@ -51,7 +51,7 @@ router.get("/login", (req, res) => {
     res.redirect("/");
     return;
   }
-  res.render("login");;
+  res.render("login");
 });
 
 router.get("/signup", (req, res) => {

@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header  flex-row justify-space-between">
         <h2>
-            <a href="/posts/{{post.id}}">
+            <a href="/post/{{post.id}}">
                 <div class="col-8">{{post.post_title}}</div>
             </a>
         </h2>
@@ -23,7 +23,7 @@
         <textarea class="form-input" id="comment-body" name="comment-body"></textarea>
         <button type="submit" class="btn btn-primary">Submit:</button>
     </form>
-    {{> comments post.comments}}
+    {{> comments post.comments}} 
 </div>
 {{/if}}
 <script src="/js/comment.js"></script>

@@ -1,8 +1,8 @@
 const editPostHandler = async (event) => {
     event.preventDefault();
 const postId = document.querySelector('input[name="post-id"]').value;
-const post_title = document.querySelector('input[name="post-title"]').value.trim();
-const post_description = document.querySelector('text-area[name="post-description"]').value.trim();
+const post_title = document.querySelector('input[name="post_title"]').value.trim();
+const post_description = document.querySelector('textarea[name="post_description"]').value.trim();
 console.log(postId);
 console.log(post_title);
 console.log(post_description);
