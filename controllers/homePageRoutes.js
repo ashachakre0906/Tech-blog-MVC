@@ -10,6 +10,7 @@ router.get("/", withAuth, async (req, res) => {
       include: [User, Comment],
     });
     const posts = getAllPosts.map((post) => post.get({ plain: true }));
+    console.log(posts);
     res.render("all-posts-homepage", {
       posts,
       logged_in: req.session.logged_in,
