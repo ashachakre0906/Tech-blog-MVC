@@ -6,7 +6,7 @@
             </a>
         </h2>
 
-        <div class="col-3">posted by {{post.username}} on {{format_date post.dateCreated}}</div>
+        <div class="col-3">posted by {{post.username}} on {{format_date post.date_created}}</div>
     </div>  
 
     <p class="card-body">
@@ -17,11 +17,11 @@
 {{#if logged_in}}
 <div class="card">
     <div class="card-header"></div>
-    <form class="card-body" id="new-comment-form">
+    <form class="card-body" id="comment-form">
     
-        <p class="form-label">Comment:</p>
-        <textarea class="form-input" id="comment-body" name="comment-body"></textarea>
-        <button type="submit" class="btn btn-primary">Submit:</button>
+        <label class="form-label">Comment:</label>
+        <textarea class="form-input" id="comment-body" name="comment-data"></textarea>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     {{> comments post.comments}} 
 </div>

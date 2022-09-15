@@ -20,11 +20,13 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 //POST Route add new comment
+//req.body should be match with fetch request body.
 
 router.post("/", withAuth, async (req, res) => {
   try {
     const newComment = await Comment.create({
-      ...body,
+      commentData: req.body.comment_body,
+      post_id: req.body.post_id,
       user_id: req.session.user_id,
     });
     res.status(200).json(newComment);
