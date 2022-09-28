@@ -1,8 +1,7 @@
-const postId = document.querySelector('input[name="post-id"]').value;
-
 //EDIT POST
 const editPostHandler = async (event) => {
   event.preventDefault();
+  const postId = document.querySelector('input[name="post-id"]').value;
   const post_title = document
     .querySelector('input[name="post_title"]')
     .value.trim();
@@ -32,13 +31,14 @@ const editPostHandler = async (event) => {
 };
 //DELETE POST
 const deletebuttonHandler = async (event) => {
+  const postId = document.querySelector('input[name="post-id"]').value;
   const response = await fetch(`/api/posts/${postId}`, {
     method: "DELETE",
   });
   console.log(response);
-//   if (response.ok) {
-//     document.location.replace("/dashboard");
-//   }
+  if (response.ok) {
+    document.location.replace("/dashboard");
+  }
 };
 
 document

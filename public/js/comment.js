@@ -18,7 +18,7 @@ const commentFormHandler = async (event) => {
             }
         });
         if (response.ok) {
-            document.location.reload();
+            window.location.replace('/')
         } else {
             alert(response.statusText);
         }
