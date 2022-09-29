@@ -1,12 +1,12 @@
 <div class="card">
-    <div class="card-header flex-row justify-space-between">
+    <div class="card-header d-flex flex-row justify-content-between">
         <h2>
             <a href="/post/{{post.id}}">
-                <div class="col-8">{{post.post_title}}</div>
+                <div class="col-8 heading">{{post.post_title}}</div>
             </a>
         </h2>
 
-        <div class="col-3">by: {{post.user.username}} on {{format_date post.date_created}}</div>
+        <div class="col-4">by: {{post.user.username}} on {{format_date post.date_created}}</div>
     </div>  
 
     <p class="card-body">   
@@ -21,7 +21,7 @@
     
         <label class="form-label">Comment:</label>
         <textarea class="form-input" id="comment-body" name="comment-data"></textarea>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary common-button">Submit</button>
     </form>
     {{> comments post.comments}} 
 </div>

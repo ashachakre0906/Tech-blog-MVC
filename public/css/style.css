@@ -104,4 +104,17 @@ font-size: 20px;
   text-align: center;
   margin-top:20px;
   margin-bottom:-30px;
+  border-color: none;
+  transition: all 100s ease-in-out;
+  outline:none;
+
+}
+a:hover {
+  color: none;
+}
+.heading {
+  color:darkolivegreen;
+  font-size: 25px;
+  max-width:100%;
+
 }

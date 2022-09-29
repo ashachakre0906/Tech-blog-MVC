@@ -21,8 +21,9 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 // After clicking on newpost button
-router.get('/new',(req, res) => {
+router.get('/new',withAuth,(req, res) => {
   res.render('new-post', {
+    layout: 'dashboard',
   });
 });
 
