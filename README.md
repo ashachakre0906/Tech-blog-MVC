@@ -1,16 +1,13 @@
 ## Description
 Challenge this week is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
-### [Solution URL](hhttps://github.com/ashachakre0906/Tech-blog-MVC)
-### [Deploy URL](https://techy-blog-mvc.herokuapp.com/)
+[Solution URL](hhttps://github.com/ashachakre0906/Tech-blog-MVC)
+[Deploy URL](https://techy-blog-mvc.herokuapp.com/)
  ## Table of Contents
 - [Description](#description)
-  - [Solution URL](#solution-url)
-  - [Deploy URL](#deploy-url)
 - [Table of Contents](#table-of-contents)
 - [User Story](#user-story)
 - [Acceptance Criteria](#acceptance-criteria)
-  - [The following animation demonstrates the application functionality](#the-following-animation-demonstrates-the-application-functionality)
 - [Technologies Used](#technologies-used)
 - [Credits](#credits)
 - [Questions](#questions)
@@ -58,17 +55,58 @@ THEN I am signed out of the site
 WHEN I am idle on the site for more than a set time
 THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
 ```
-### The following animation demonstrates the application functionality
+***The following animation demonstrates the application functionality***
+![Live Demo](/public/assets/images/tech-blog-mvc.gif)
 
+***Code Examples and Screenshots***
+<img src="./public/assets/images/login.png">
+<img src="./public/assets/images/dashboard.png">
 
+- Backend route which Gets All existing Posts associated to a specific User
+```js
+router.get("/", withAuth, async (req, res) => {
+  try {
+    const getPost = await Post.findAll({
+      where: { user_id: req.session.user_id },
+      include: User,
+    });
+    const posts = getPost.map((post) => post.get({ plain: true })); //we are fetching the data and it gonna map each object and renders it on the page into the plain text
+    res.render("all-posts-dashboard", {
+      layout: "dashboard",
+      posts,
+    });
+  } catch (err) {
+    res.redirect("login");
+  }
+});
+```
+- FE fetching the api route `/api/posts'` to create new post using http method POST.
+  ```js
+  const newResponse = await fetch('/api/posts', {
+      method: 'POST',
+      body: JSON.stringify({
+          post_title,
+          post_description,
+      }),
+      headers: { 'Content-Type': 'application/json' },
+  });
+  if (newResponse.ok) {
+      document.location.replace('/dashboard');
+  } else {
+      alert('Unable to create new post')
+  };
+  ```
 ## Technologies Used
 ![Javascript Badge](https://img.shields.io/badge/language-Javascript-blue.svg)
 ![Express Badge](https://img.shields.io/badge/backend-Express-yellow.svg)
 ![Node Badge](https://img.shields.io/badge/backend-Node-orange.svg)
+![MySql2 Badge](https://img.shields.io/badge/backend-MySql2-magenta.svg)
+![Sequelize Badge](https://img.shields.io/badge/backend-Sequelize-purple.svg)
 ![Deployment Badge](https://img.shields.io/badge/Deployment-Heroku-green.svg)
 
+
 ## Credits
-Thank you all TA's and my tutor Joem Casusi for helping with debugging the errors in my code.
+Thank you all TA's and my tutor Joem Casusi for helping debugging the errors in my code.
 
 ## Questions
 Please reach out to me:<br>
